@@ -23,6 +23,9 @@ class UnitTest{
             jenkins.node(jenkins.POD_LABEL){
                 jenkins.container('flutter'){
                     try {
+                        jenkins.sh label: "Flutter Clean", 
+                                   script: "flutter clean"
+                                   
                         jenkins.sh label: "Unit Tests", 
                                    script: "flutter test --coverage test/*"
                     } catch (Exception e) {
